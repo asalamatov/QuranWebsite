@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #e5e8eb;
+}
+
+.quran-surah-leader {
+  background: linear-gradient(-135deg, #3cb3d4);
+  background-image: url("./img/qlheader.png");
+  background-size: cover;
+  padding: 35px;
+}
