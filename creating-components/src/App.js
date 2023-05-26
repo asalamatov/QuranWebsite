@@ -18,15 +18,15 @@ function NavBar(){
   )
 }
 
-function PageLeader() {
+function PageHeader() {
   return (
     <div>
       <div className='w-full max-w-7xl my-0 mx-auto p-5'>
         <div className='quran-surah-header rounded py-0 px-0 shadow-md text-white'>
           <div className="ql-cover text-center py-8 px-0">
             <div className="text-center">
-              <img class="inline-block" src={quranLogo} alt='quran png' /><br/>
-              <h1 class="text-2xl mt-3 font-bold">Ыйык Куран</h1>
+              <img className="inline-block" src={quranLogo} alt='quran png' /><br/>
+              <h1 className="text-2xl mt-3 font-bold">Ыйык Куран</h1>
             </div>
           </div>
         </div>
@@ -35,12 +35,33 @@ function PageLeader() {
   )
 }
 
+function SurahsList() {
+  const list = async function() {
+    const response = await fetch("https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions/kir-shamsaldinhakim.json");
+    const jsonData = await response.json();
+    return jsonData
+  }
+  return (
+    <>
+      <ul>
+        <li>{list}</li>
+        {/* {list.map((k) => (
+          <li key={k}>
+            {k}
+          </li>
+        ))} */}
+      </ul>
+    </>
+  )
+}
+
 
 function App() {
   return (
       <>
       <NavBar />
-      <PageLeader />
+      <PageHeader />
+      <SurahsList />
       </>
   );
 }
